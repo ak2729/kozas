@@ -1,27 +1,41 @@
 
-/* 매우 기초적인 깔끔 스타일 */
+/* 기본/다크 테마 색상 */
 :root {
   --bg: #ffffff;
-  --text: #222;
-  --primary: #0066ff;
-  --muted: #666;
-  --card: #f6f8fb;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #0ea5e9; /* 하늘색 */
+  --card: #f8fafc;
+  --border: #e5e7eb;
+}
+:root[data-theme="dark"] {
+  --bg: #0b1020;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --primary: #38bdf8;
+  --card: #111827;
+  --border: #1f2937;
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; }
+html, body { margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; }
 body { background: var(--bg); color: var(--text); line-height: 1.7; }
 
-header { padding: 2rem 1rem; text-align: center; background: linear-gradient(180deg, #eef3ff, #ffffff); }
-header h1 { margin: 0 0 .5rem; font-size: 2rem; }
-header p { margin: 0 0 1rem; color: var(--muted); }
-nav a { margin: 0 .5rem; color: var(--primary); text-decoration: none; font-weight: 600; }
-nav a:hover { text-decoration: underline; }
+.container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+.site-header { display:flex; justify-content: space-between; align-items:center; padding: .75rem 1rem; border-bottom:1px solid var(--border); position: sticky; top:0; background: var(--bg); z-index:10; }
+.brand { font-weight: 800; color: var(--text); text-decoration: none; }
+.nav a { margin-right: .75rem; text-decoration: none; color: var(--primary); font-weight: 600; }
+.nav button { border:1px solid var(--border); background: var(--card); color: var(--text); padding:.4rem .6rem; border-radius:8px; cursor:pointer; }
 
-main { max-width: 860px; margin: 2rem auto; padding: 0 1rem; }
-section { background: var(--card); border: 1px solid #e7ecf3; border-radius: 12px; padding: 1.5rem; margin-bottom: 1rem; }
-section h2 { margin-top: 0; }
+.hero { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 2rem; text-align: center; }
+.hero h1 { margin-top:0; }
+.muted { color: var(--muted); }
 
-footer { text-align: center; padding: 2rem 1rem; color: var(--muted); }
-a { color: var(--primary); }
+.btn { display:inline-block; margin-right:.5rem; background: var(--primary); color:white; padding:.6rem 1rem; border-radius:10px; text-decoration:none; }
+.btn-secondary { background: transparent; color: var(--primary); border:1px solid var(--primary); }
+
+section { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-top: 1rem; }
+.site-footer { text-align:center; padding: 2rem 1rem; color: var(--muted); }
+
 ul { padding-left: 1.25rem; }
+img { max-width: 100%; height: auto; }

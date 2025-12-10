@@ -1,1 +1,84 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>프로젝트 | Gi-Young</title><link rel="stylesheet" href="styles.css"/></head><body><header class="site-header"><a class="brand" href="index.html">Gi-Young</a><nav class="nav"><a href="about.html">소개</a><a href="projects.html">프로젝트</a><a href="contact.html">연락</a></nav></header><main class="container"><section><h2>프로젝트 목록</h2><ul><li><strong>프로젝트 A</strong> — 개요, 역할, 사용 기술</li><li><strong>프로젝트 B</strong> — 문제/해결책, 성과 지표</li></ul></section></main><footer class="site-footer"><small>© 2025 Gi-Young KIM.</small></footer><script>document.getElementById('year')&& (document.getElementById('year').textContent=new Date().getFullYear());</script></body></html>
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>프로젝트 트러블슈팅 | IEC61850</title>
+  <meta name="description" content="CID Deadband/Range 튜닝 사례" />
+  <style>
+:root{--bg:#0b1020;--text:#e2e8f0;--muted:#94a3b8;--card:#0f172a;--border:#1e293b;--primary:#38bdf8}
+*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif}body{background:var(--bg);color:var(--text);line-height:1.8}
+.container{max-width:1000px;margin:2rem auto;padding:0 1rem}
+.header{padding:1rem;border-bottom:1px solid var(--border)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem 1.25rem;margin:1rem 0}
+.h{margin:.2rem 0 1rem}
+.muted{color:var(--muted)}
+ul{padding-left:1.25rem}
+.code{font-family:ui-monospace,Menlo,Consolas,monospace;background:#0b1328;border:1px solid #17203c;border-radius:10px;padding:.75rem;display:block}
+</style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="h">프로젝트 트러블슈팅: IEC61850 측정 범위 확장</h1>
+    <p class="muted">원본: PowerPoint 슬라이드 (Mar. 2025, Giyoung Kim)</p>
+  </header>
+  <main class="container">
+    <article class="card">
+      <h2 class="h">프로젝트 개요</h2>
+      <p>IEC61850 기반 계측에서 <strong>측정 상한(Voltage/Current)</strong>과 <strong>Deadband</strong> 설정으로 인해 고전압/고전류 구간이 보고되지 않는 문제를 <strong>CID 파일 파라미터 튜닝</strong>으로 해결한 사례입니다.</p>
+    </article>
+    <article class="card">
+      <h2 class="h">문제 (Trouble)</h2>
+      <ul><li>6.6kV SWGR : It is not possible to monitor voltages above 1000v.</li>
+<li>480V SWGR : It is not possible to monitor ampere above 1000A![][image_bOjMdcGYcY707cUfj7rAFg==]</li></ul>
+      <p class="muted">(슬라이드 2 요약)</p>
+    </article>
+    <article class="card">
+      <h2 class="h">원인/배경</h2>
+      <ul><li>Default CID settings: deadband=1000, range=1000 (need to monitor &gt;6600V and ±10V fluctuations)</li>
+<li>Deadband formula: db * (rangeC.max – rangeC.min)/100000. Example yields 10V threshold</li></ul>
+      <p class="code">Deadband = db × (rangeC.max – rangeC.min) / 100000</p>
+      <p class="muted">(슬라이드 3–4 요약)</p>
+    </article>
+    <article class="card">
+      <h2 class="h">조치 (Action)</h2>
+      <ul><li>Open CID in Notepad++; locate FFT voltage/current/power entries (Ctrl+F)</li>
+<li>Modify: db 1000 → 100, Max 1000 → 10000; save and verify in CET850</li>
+<li>Open CID in Notepad++; locate FFT voltage/current/power entries (Ctrl+F)</li>
+<li>Modify: db 1000 → 100, Max 1000 → 10000; save and verify in CET850</li>
+<li>Open CID in Notepad++; locate FFT voltage/current/power entries (Ctrl+F)</li>
+<li>Modify: db 1000 → 100, Max 1000 → 10000; save and verify in CET850</li>
+<li>Open CID in Notepad++; locate FFT voltage/current/power entries (Ctrl+F)</li>
+<li>Modify: db 1000 → 100, Max 1000 → 10000; save and verify in CET850</li>
+<li>Open CID in Notepad++; locate FFT voltage/current/power entries (Ctrl+F)</li>
+<li>Modify: db 1000 → 100, Max 1000 → 10000; save and verify in CET850</li></ul>
+      <p class="muted">(슬라이드 5–9 요약)</p>
+    </article>
+    <article class="card">
+      <h2 class="h">결과 (Result)</h2>
+      <ul><li>Deadband unchanged (=10V) but monitoring range extended to 6600V</li></ul>
+      <p class="muted">(슬라이드 10 요약)</p>
+    </article>
+    <article class="card">
+      <h2 class="h">실습 (Exercise)</h2>
+      <ul><li>## Let’s try to make the changed LV system</li>
+<li>Property of Schneider Electric</li>
+<li>Page</li>
+<li>Trouble</li>
+<li>480V SWGR : It is not possible to monitor ampere above 1000A</li>
+<li>[Exercise]</li>
+<li>Let&#x27;s modify the CID file of TR encoder rated 4000A using the attachment at the top right.</li>
+<li>At this time, we report the variation value only when there is a variation of 10A or more.</li></ul>
+      <p class="muted">(슬라이드 11 요약)</p>
+    </article>
+    <article class="card">
+      <h2 class="h">노트</h2>
+      <ul>
+        <li>여기 HTML은 단독 실행 가능(내장 스타일). 템플릿과 합치려면 <code>styles.css</code>/<code>scripts.js</code>와 헤더를 맞춰도 됩니다.</li>
+        <li>원본 이미지/도표는 슬라이드에 포함되어 있었으나 텍스트만 추출되어 요약했습니다.</li>
+      </ul>
+    </article>
+  </main>
+</body>
+</html>

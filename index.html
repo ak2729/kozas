@@ -1,52 +1,48 @@
-
 <!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gi-Young의 홈페이지</title>
-  <meta name="description" content="안녕하세요! Gi-Young의 포트폴리오/소개 페이지입니다." />
-  <!-- Open Graph (공유 미리보기) -->
+  <meta name="description" content="Gi-Young KIM의 포트폴리오/소개 페이지" />
   <meta property="og:title" content="Gi-Young의 홈페이지" />
   <meta property="og:description" content="프로젝트, 경력, 연락처를 확인하세요." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://YOUR-USERNAME.github.io" />
+  <meta property="og:url" content="https://ak2729.github.io" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>안녕하세요, Gi-Young입니다 👋</h1>
-    <p>에너지/파워 분야 서비스 담당자. 프로젝트와 경험을 공유합니다.</p>
-    <nav>
-      <a href="#about    <projects프로젝트</a>
-      <a href="#contact  </nav>
+  <header class="site-header">
+    <a class="brand" href="index.html">Gi-Young</a>
+    <nav class="nav">
+      <a href="about.html">소개</a>
+      <a href="projects.html">프로젝트</a>
+      <a href="contact.html">연락</a>
+    </nav>
   </header>
-
-  <main>
-    <section id="about">
-      <h2>소개</h2>
-      <p>간단한 자기소개를 여기에 적어보세요. 하고 있는 일, 관심사, 목표 등을 2~3문단으로.</p>
+  <main class="container">
+    <section class="hero">
+      <h1>안녕하세요, Gi-Young입니다 👋</h1>
+      <p class="muted">에너지/파워 분야 서비스 담당자. 프로젝트와 경험을 공유합니다.</p>
+      <div class="cta">
+        <a class="btn" href="projects.html">프로젝트 보기</a>
+        <a class="btn btn-secondary" href="about.html">소개 읽기</a>
+      </div>
     </section>
-
-    <section id="projects">
-      <h2>프로젝트</h2>
+    <section>
+      <h2>최근 작업</h2>
       <ul>
-        <li><strong>프로젝트 A</strong> — 무엇을 했고, 어떤 문제를 해결했는지 한 줄 설명</li>
-        <li><strong>프로젝트 B</strong> — 사용한 기술/도구, 결과</li>
+        <li><strong>프로젝트 A</strong> — 무엇을 했고 어떤 가치를 만들었는지 한 줄 설명</li>
+        <li><strong>프로젝트 B</strong> — 사용한 기술/도구와 결과</li>
       </ul>
     </section>
-
-    <section id="contact">
-      <h2>연락처</h2>
-      <p>이메일: mailto:you@example.comyou@example.com</a></p>
-      <p>LinkedIn 혹은 GitHub 링크도 추가해보세요.</p>
-    </section>
   </main>
-
-  <footer>
+  <footer class="site-footer">
     <small>© <span id="year"></span> Gi-Young KIM. All rights reserved.</small>
-    <script>
-      // 현재 연도 자동 표기
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
   </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
+</html>

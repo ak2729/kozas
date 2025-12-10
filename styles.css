@@ -1,41 +1,4 @@
-
 /* 기본/다크 테마 색상 */
-:root {
-  --bg: #ffffff;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --primary: #0ea5e9; /* 하늘색 */
-  --card: #f8fafc;
-  --border: #e5e7eb;
-}
-:root[data-theme="dark"] {
-  --bg: #0b1020;
-  --text: #e5e7eb;
-  --muted: #94a3b8;
-  --primary: #38bdf8;
-  --card: #111827;
-  --border: #1f2937;
-}
-
-* { box-sizing: border-box; }
-html, body { margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; }
-body { background: var(--bg); color: var(--text); line-height: 1.7; }
-
-.container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
-.site-header { display:flex; justify-content: space-between; align-items:center; padding: .75rem 1rem; border-bottom:1px solid var(--border); position: sticky; top:0; background: var(--bg); z-index:10; }
-.brand { font-weight: 800; color: var(--text); text-decoration: none; }
-.nav a { margin-right: .75rem; text-decoration: none; color: var(--primary); font-weight: 600; }
-.nav button { border:1px solid var(--border); background: var(--card); color: var(--text); padding:.4rem .6rem; border-radius:8px; cursor:pointer; }
-
-.hero { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 2rem; text-align: center; }
-.hero h1 { margin-top:0; }
-.muted { color: var(--muted); }
-
-.btn { display:inline-block; margin-right:.5rem; background: var(--primary); color:white; padding:.6rem 1rem; border-radius:10px; text-decoration:none; }
-.btn-secondary { background: transparent; color: var(--primary); border:1px solid var(--primary); }
-
-section { background: var(--card); border:1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-top: 1rem; }
-.site-footer { text-align:center; padding: 2rem 1rem; color: var(--muted); }
-
-ul { padding-left: 1.25rem; }
-img { max-width: 100%; height: auto; }
+:root { --bg:#fff; --text:#1f2937; --muted:#6b7280; --primary:#0ea5e9; --card:#f8fafc; --border:#e5e7eb; }
+html,body{margin:0;padding:0;font-family:system-ui,"Noto Sans KR",sans-serif;}body{background:var(--bg);color:var(--text);line-height:1.7;}
+.container{max-width:900px;margin:2rem auto;padding:0 1rem;}.site-header{display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;border-bottom:1px solid var(--border);background:var(--bg);}a{text-decoration:none}.brand{font-weight:800;color:var(--text)}.nav a{margin-right:.75rem;color:var(--primary);font-weight:600}.hero{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center}.btn{display:inline-block;margin-right:.5rem;background:var(--primary);color:#fff;padding:.6rem 1rem;border-radius:10px}.btn-secondary{background:transparent;color:var(--primary);border:1px solid var(--primary)}section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;margin-top:1rem}.site-footer{text-align:center;padding:2rem 1rem;color:var(--muted)}ul{padding-left:1.25rem}img{max-width:100%;height:auto}
